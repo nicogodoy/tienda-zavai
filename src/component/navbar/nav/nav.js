@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar, Nav, Button, Dropdown, Form, Collapse } from 'bootstrap-4-react';
 import './nav.css';
-import CartWidget from "./cardWidget/cartWidget";
+import CartWidget from "../cardWidget/cartWidget";
 
 export default class App extends Component {
   render() {

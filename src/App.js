@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css';
-import Nav from './component/navbar/nav'
+import Nav from './component/navbar/nav/nav'
 import ItemListContainer from './component/container/itemListContainers'
 
 function App() {
