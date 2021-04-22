@@ -11,7 +11,7 @@ function App() {
       <ItemListContainer greeting="Villanas store le da la bienvenida! :)"/>
       <div className="items">
 
-      <ItemCount stock="5" initial="1" className="items" />
+      <ItemCount stock={5} initial={1} className="items" />
       </div>
     </div>
   );

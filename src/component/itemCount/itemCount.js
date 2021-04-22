@@ -9,6 +9,9 @@ export default function ItemCount({stock, initial, onAdd}) {
    function increment(){
        if (number<stock) {
            setNumber(number+1)
+           
+        }  else{
+            return alert('no hay mas stock de este producto')
         }
    }
 
@@ -23,7 +26,7 @@ export default function ItemCount({stock, initial, onAdd}) {
            
         <div className="item-count-container">
             <div className='item-count-container__title'>
-                     zapatos
+                     <h6>Zapatos bajos</h6>
                     
             </div>
            <div className='item-count-container__buttons'>
@@ -40,7 +43,7 @@ export default function ItemCount({stock, initial, onAdd}) {
                </button>
 
            </div>
-           <button disabled={number === 0   }>
+           <button disabled={number === 0 || number>= 5 }>
                Agregar al carrito
            </button>
         </div>
