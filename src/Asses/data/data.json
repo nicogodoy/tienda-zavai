@@ -1,4 +1,4 @@
-const itemsList = [
+[
   {
     "id": 1,
     "title": "Soy zapato 1",
@@ -41,6 +41,4 @@ const itemsList = [
     "precio":"8000",
     "color":"Rojo"
   }
-];
-module.exports= itemsList;
-
+]
