@@ -1,7 +1,7 @@
 import React,{useState, useEffect }  from 'react';
 import Item from '../item/item'
 import itemList from "../itemList/itemList";
-import { Card, ListGroup } from 'bootstrap-4-react';
+
 
 
 export default function ItemListContainer(){
@@ -9,18 +9,23 @@ export default function ItemListContainer(){
   const [item, setItems] = useState([]);
 
     useEffect(() => {
-     
-     itemList.map(xIteLis =>(console.log(xIteLis)));
-     setItems(itemList);
+     setTimeout(()=>{
+         itemList.map(xIteLis =>(console.log(xIteLis)));
+         setItems(itemList);
+         
+     },2000)
     },[]);
 
 
     return(
-        <div>
+        <div style={{display: "flex", justifyContent: "space-between"}}>
             {
                 item.map(xItem =>(
-                <Item title={xItem.title}/> 
+
+                <Item title={xItem.title} description={xItem.description} precio={xItem.precio} color={xItem.color}/> 
+               
                 ))
+               
 
             }
              
