@@ -1,15 +1,16 @@
 import React  from 'react';
-import { Card, ListGroup } from 'bootstrap-4-react';
-import imgSrc from '../../AssesImg/Red_High_Heel_Pumps.png';
+import { Card, ListGroup, Button } from 'bootstrap-4-react';
+import imgSrc from '../../Asses/Red_High_Heel_Pumps.png';
 import ItemCount from '../itemCount/itemCount'
 import '../item/item.css'
+import ItemDetail from '../ItemDetail/ItemDetail'
 
-export default function ShowItem(title){
+export default function ShowItem(array){
   
     return (
       
      
-      <Card style={{ width: '15rem' , display:'flex' }}>
+      <Card style={{ width: '12rem' }}>
         <Card.Image src={imgSrc} top/>
         <Card.Body>
           <Card.Title>Villanas Store</Card.Title>
@@ -18,14 +19,17 @@ export default function ShowItem(title){
           </Card.Text>
         </Card.Body>
         <ListGroup flush>
-          <ListGroup.Item>Nombre:{title.title}</ListGroup.Item>
-          <ListGroup.Item>Descripcion:{title.description}</ListGroup.Item>
-          <ListGroup.Item>Precio:{title.precio}</ListGroup.Item>
-          <ListGroup.Item>Color:{title.color}</ListGroup.Item>
+          <ListGroup.Item>Nombre:{array.title}</ListGroup.Item>
         </ListGroup>
-        <Card.Body>
-          <Card.Link href="#"> <ItemCount stock={5} initial={1} className="items" /></Card.Link>
-          <Card.Link href="#">Ver mas info</Card.Link>
+        <Card.Body >
+          <Card.Link style={{display:'flex',flexDireccion:'row'}} href="#" > <ItemCount stock={5} initial={1} className="items" /></Card.Link>
+          
+          {/* <Card.Link  href="#">ir a home</Card.Link> */}
+          <Card.Link  style={{display:'flex',alignItems: 'center',justifyContent:'center'}}>
+          <Button style={{display:'flex',justifyContent:'center',alignItems:'center'}} onClick={ItemDetail.ItemDetail}>
+               informacion
+          </Button>
+          </Card.Link>
         </Card.Body>
       </Card>
       

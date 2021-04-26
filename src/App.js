@@ -4,6 +4,7 @@ import Nav from './component/navbar/nav/nav'
 import ItemListContainers from './component/container/itemListContainers'
 import {browserRouter as Router, Route, Switch} from 'react-router-dom';
 import ItemListContainer from './component/itemListContainer/itemListContainer'
+import ItemDetailContainer from './component/ItemDetailContainer/ItemDetailContainer'
 function App() {
   return (
     
@@ -12,11 +13,9 @@ function App() {
       
       <Nav/>
       <ItemListContainers greeting="Villanas store le da la bienvenida! :)"/>
-      <div className="items">
       
-      
-      </div>
       <ItemListContainer/>
+      <ItemDetailContainer />
       
     </div>
   );

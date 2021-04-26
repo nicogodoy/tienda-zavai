@@ -3,3 +3,50 @@
     flex-direction: "row";
     justify-content: "space-between";
 }
+.card{
+
+    padding: 10px;
+    margin: 10px;
+   
+}
+.butons-container{
+    display: flex;
+    justify-content: "space-between";
+    justify-content: space-around;
+    margin-bottom: 2px;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.btn-outline-success{
+    display: flex;
+    width: 6rem;
+}
+.btn-outline-success{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.div-number{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn{
+    display: flex;
+    margin-bottom: 2px;
+    
+}
+.btn-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-outline-secondary{
+border:none;
+margin:10px;
+
+}
