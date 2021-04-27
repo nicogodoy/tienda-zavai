@@ -4,6 +4,7 @@ import imgSrc from '../../Asses/Red_High_Heel_Pumps.png';
 import ItemCount from '../itemCount/itemCount'
 import '../item/item.css'
 import ItemDetail from '../ItemDetail/ItemDetail'
+import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 
 export default function ShowItem(array){
   
@@ -26,7 +27,7 @@ export default function ShowItem(array){
           
           {/* <Card.Link  href="#">ir a home</Card.Link> */}
           <Card.Link  style={{display:'flex',alignItems: 'center',justifyContent:'center'}}>
-          <Button style={{display:'flex',justifyContent:'center',alignItems:'center'}} onClick={ItemDetail.ItemDetail}>
+          <Button style={{display:'flex',justifyContent:'center',alignItems:'center'}} onClick={ItemDetail}>
                informacion
           </Button>
           </Card.Link>
