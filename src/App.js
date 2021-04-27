@@ -5,6 +5,7 @@ import ItemListContainers from './component/container/itemListContainers'
 import {browserRouter as Router, Route, Switch} from 'react-router-dom';
 import ItemListContainer from './component/itemListContainer/itemListContainer'
 import ItemDetailContainer from './component/ItemDetailContainer/ItemDetailContainer'
+//import ItemDetail from './component/ItemDetail/ItemDetail'
 function App() {
   return (
     
@@ -16,6 +17,7 @@ function App() {
       
       <ItemListContainer/>
       <ItemDetailContainer />
+      
       
     </div>
   );

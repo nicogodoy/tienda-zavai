@@ -34,7 +34,9 @@ export default function ItemDetailContainer() {
 
      <div style={{ display: "flex",justifyContent: "space-between" }}>
         {itemDetail.map((xItem) => (
+
         <  ItemDetail
+
           
           description={xItem.description}
           precio={xItem.precio}
