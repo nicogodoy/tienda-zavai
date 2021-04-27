@@ -20,29 +20,7 @@ export default function ItemCount({ stock, initial, onAdd }) {
   }
 
   return (
-    // <div className="item-count-container">
-    //     <div className='item-count-container__title'>
-    //              <h6>Zapatos bajos</h6>
-
-    //     </div>
-    //    <div className='item-count-container__buttons'>
-    //        <Button secondary outline onClick={decrement}>
-    //            -
-    //        </Button>
-    //        <div>
-    //           {
-    //               number
-    //           }
-    //        </div>
-    //        <Button secondary outline onClick={increment}>
-    //            +
-    //        </Button>
-
-    //    </div>
-    //    <Button success outline disabled={number === 0 || number>= 5 }>
-    //        Agregar al carrito
-    //    </Button>
-    // </div>
+   
     <div className="container">
       <div className="butons-container">
         <Button secondary outline onClick={decrement}>
