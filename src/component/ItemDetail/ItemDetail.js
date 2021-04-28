@@ -19,7 +19,7 @@ export default function ItemDetail(itemDetail) {
           <Card.Text>Precio:{itemDetail.precio}.</Card.Text>
         </Card.Body>
         <Card.Footer>
-          <Card.Link href="#">Card Link</Card.Link>
+          <Card.Link href="#">Volver</Card.Link>
         </Card.Footer>
       </Card>
         
