@@ -8,7 +8,7 @@ import imgSrc from '../../Asses/Red_High_Heel_Pumps.png';
 export default function ItemDetail(itemDetail) {
     return (
 
-        <div>
+        <div style={{display:'flex',flexDireccion:'column'}}>
           <Card style={{ width: '14rem' }}>
         <Card.Header>Zapatos</Card.Header>
         <Card.Image src={imgSrc} />

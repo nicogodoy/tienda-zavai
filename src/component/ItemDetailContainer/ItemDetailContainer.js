@@ -1,10 +1,12 @@
 import React,{useEffect,useState} from 'react'
+import { useParams } from 'react-router';
 //import { getItems } from '../../servicie/servicie';
 import ItemDetail from '../ItemDetail/ItemDetail';
 
 export default function ItemDetailContainer() {
-    const [itemDetail,setItemDetail]=useState([])
-
+  const [itemDetail,setItemDetail]=useState([])
+ 
+  
 
 
     useEffect(() => {
@@ -32,10 +34,10 @@ export default function ItemDetailContainer() {
     return (
 
 
-     <div style={{ display: "flex",justifyContent: "space-between" }}>
+     <div style={{ display: "flex",flexDireccion:'row', justifyContent: "space-between", }}>
         {itemDetail.map((xItem) => (
 
-        <  ItemDetail
+        <  ItemDetail style={{ display: "flex"}}
 
           
           description={xItem.description}

@@ -2,9 +2,19 @@ import React, { Component } from 'react';
 import { Navbar, Nav, Button, Dropdown, Form, Collapse } from 'bootstrap-4-react';
 import './nav.css';
 import CartWidget from "../cardWidget/cartWidget";
+import {useHistory} from 'react-router-dom'
 
 export default class App extends Component {
   render() {
+    function HistoryZapatos() {
+      let history= useHistory();
+      history.push('/category/zapatos')
+    }
+    function HistoryPantuflas() {
+      let history= useHistory();
+      history.push('/category/pantuflas')
+    }
+
     return (
       <Navbar expand="lg" light bg="light">
          
@@ -21,22 +31,17 @@ export default class App extends Component {
               <Nav.Link href="#">Contacto</Nav.Link>
             </Nav.Item>
             <Nav.Item dropdown>
-              <Nav.Link dropdownToggle>Zapatos</Nav.Link>
+              <Nav.Link dropdownToggle>Productos</Nav.Link>
               <Dropdown.Menu>
-                <Dropdown.Item>Otoño/Invierno</Dropdown.Item>
-                <Dropdown.Item>Primavera/Verano</Dropdown.Item>
+                <Dropdown.Item onClic={HistoryZapatos}>Zapatos</Dropdown.Item>
+                <Dropdown.Item onClic={HistoryPantuflas}> Pantuflas</Dropdown.Item>
                
               </Dropdown.Menu>
               
             </Nav.Item>
             <Nav.Item dropdown>
-              <Nav.Link dropdownToggle>Pantuflas</Nav.Link>
-              <Dropdown.Menu>
-                <Dropdown.Item>Otoño/Invierno</Dropdown.Item>
-                <Dropdown.Item>Primavera/Verano</Dropdown.Item>
-                
-               
-              </Dropdown.Menu>
+             
+              
               
             </Nav.Item>
            
