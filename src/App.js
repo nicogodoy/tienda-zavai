@@ -13,7 +13,7 @@ function App() {
       <Nav/>
       <Switch>
       <Route exact path="/">
-      <ItemListContainer />
+      <ItemListContainers />
       </Route>
       <Route  path="/category/categoryId">
       <ItemListContainer />
