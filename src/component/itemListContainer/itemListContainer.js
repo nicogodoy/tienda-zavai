@@ -8,13 +8,6 @@ import {useLocation} from 'react-router-dom'
 export default function ItemListContainer() {
 
 
-  function useQuery() {
-  return new URLSearchParams(useLocation().search);
-}
- let query= useQuery();
-  query.get("zapatos");
-
-
   const [item, setItems] = useState([]);
   const{categoryId}= useParams();
   console.log(categoryId)
@@ -26,9 +19,14 @@ export default function ItemListContainer() {
         "https://raw.githubusercontent.com/nicogodoy/tienda-zavai/main/src/Asses/data/data.json"
       )
         .then((response) => response.json())
-        .then((data) => setItems(data));
+        .then((data) =>{
+          const productCategory= data.filter(product=>product.categoryId===categoryId)
+          setItems(productCategory);
+        } )
+          
     }, 2000);
   }, [categoryId]);
+
 
   return (
     <div style={{ display: "flex",justifyContent: "space-between" }}>
@@ -38,8 +36,18 @@ export default function ItemListContainer() {
           description={xItem.description}
           precio={xItem.precio}
           color={xItem.color}
+          id={xItem.id}
+          key={xItem.id}
         />
       ))}
     </div>
   );
 }
+  // function useQuery() {
+  // return new URLSearchParams(useLocation().search);
+
+//  let query= useQuery();
+//   query.get("zapatos");
+
+
+

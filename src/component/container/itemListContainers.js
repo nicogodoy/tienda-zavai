@@ -4,7 +4,7 @@ import React from 'react';
 export default function itemListContainer(props) {
     return(
         <div className="header">
-            <p>{props.greeting}</p>
+            <p>holis</p>
             
         </div>
     )
