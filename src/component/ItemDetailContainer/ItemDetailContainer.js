@@ -1,43 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-//import { getItems } from '../../servicie/servicie';
+import { getItems } from "../../servicie/servicie";
 import ItemDetail from "../ItemDetail/ItemDetail";
 
 export default function ItemDetailContainer() {
   const { id } = useParams();
+  console.log(id);
   const [itemDetail, setItemDetail] = useState([]);
+
   useEffect(() => {
     setTimeout(() => {
-      //  itemList.map(xIteLis =>(console.log(xIteLis)));
-      //  setItems(itemList);
-      fetch(
-        "https://raw.githubusercontent.com/nicogodoy/tienda-zavai/main/src/Asses/data/data.json"
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          const productId = data.filter((product) => product.id === id);
-          setItemDetail(productId);
-        });
-    }, 2000);
-  }, [id]);
+      getItems.then((data) => {
+        const [itemProduct] = data.filter((product) => product.id == id);
+        console.log(itemProduct);
+        setItemDetail(itemProduct);
+      });
+    },0);
+  },[]);
 
   console.log(itemDetail);
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDireccion: "row",
-        justifyContent: "space-between",
-      }}
-    >
-      {itemDetail.map((xItem) => (
-        <ItemDetail
-          style={{ display: "flex" }}
-          id={itemDetail}
-          description={xItem.description}
-          precio={xItem.precio}
-        />
-      ))}
+    <div>
+      <ItemDetail product={itemDetail} />
     </div>
   );
 }

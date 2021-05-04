@@ -1,35 +1,28 @@
 import React, { useState, useEffect } from "react";
 import Item from "../item/item";
 //import itemList from "../itemList/itemList";
-import {useParams} from 'react-router-dom'
-import {useLocation} from 'react-router-dom'
-
+import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { getItems } from "../../servicie/servicie";
 
 export default function ItemListContainer() {
-
-
   const [item, setItems] = useState([]);
-  const{categoryId}= useParams();
-  console.log(categoryId)
+  const { categoryId } = useParams();
+  console.log(categoryId);
+
   useEffect(() => {
     setTimeout(() => {
-      //  itemList.map(xIteLis =>(console.log(xIteLis)));
-      //  setItems(itemList);
-      fetch(
-        "https://raw.githubusercontent.com/nicogodoy/tienda-zavai/main/src/Asses/data/data.json"
-      )
-        .then((response) => response.json())
-        .then((data) =>{
-          const productCategory= data.filter(product=>product.categoryId===categoryId)
-          setItems(productCategory);
-        } )
-          
-    }, 2000);
+      getItems.then((data) => {
+        const productCategory = data.filter(
+          (product) => product.categoryId === categoryId
+        );
+        setItems(productCategory);
+      });
+    }, 1000);
   }, [categoryId]);
 
-
   return (
-    <div style={{ display: "flex",justifyContent: "space-between" }}>
+    <div style={{ display: "flex", justifyContent: "space-between" }}>
       {item.map((xItem) => (
         <Item
           title={xItem.title}
@@ -43,11 +36,25 @@ export default function ItemListContainer() {
     </div>
   );
 }
-  // function useQuery() {
-  // return new URLSearchParams(useLocation().search);
+// function useQuery() {
+// return new URLSearchParams(useLocation().search);
 
 //  let query= useQuery();
 //   query.get("zapatos");
 
+//  itemList.map(xIteLis =>(console.log(xIteLis)));
+//  setItems(itemList);
 
+// useEffect(() => {
+//   setTimeout(() => {
+//     fetch(
+//       "https://raw.githubusercontent.com/nicogodoy/tienda-zavai/main/src/Asses/data/data.json"
+//       )
+//       .then((response) => response.json())
+//       .then((data) =>{
+//         const productCategory= data.filter(product=>product.categoryId===categoryId)
+//         setItems(productCategory);
+//       } )
 
+//     }, 2000);
+// }, [categoryId]);

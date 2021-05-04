@@ -6,7 +6,7 @@ const getItems = new Promise ((resolve,reject)=>{
         .then(data=>resolve(data))
         .catch(err=>reject(err))
         
-    },2000)
+    },0)
 })
 
 module.exports={
