@@ -5,6 +5,9 @@ import { Button } from "bootstrap-4-react";
 export default function ItemCount({ stock, initial, onAdd }) {
   const [number, setNumber] = useState(initial);
 
+  
+  let ItemQuantity=number;
+
   function increment() {
     if (number < stock) {
       setNumber(number + 1);
@@ -32,9 +35,14 @@ export default function ItemCount({ stock, initial, onAdd }) {
         </Button>
       </div>
       <div>
-        <Button success outline disabled={number === 0 || number >= 5}>
+        {
+          ItemQuantity > 0 ?(
+
+        <Button onClick={onAdd} success outline disabled={number === 0 || number >= 6}>
           Agregar 
         </Button>
+          ):null
+        }
       </div>
     </div>
   );

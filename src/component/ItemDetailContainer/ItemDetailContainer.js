@@ -26,11 +26,4 @@ export default function ItemDetailContainer() {
   );
 }
 
-//  useEffect(() => {
-//      setTimeout(()=>{
-//          getItems
-//          .then(data=>console.log("Se ejecuto con exito la promesa"))
-//          .then(data=>setItemDetail(data))
-//      },2000)
 
-//  }, [])

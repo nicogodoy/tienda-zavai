@@ -1,11 +1,8 @@
 import React  from 'react';
 import { Card, ListGroup, Button } from 'bootstrap-4-react';
 import imgSrc from '../../Asses/img/Red_High_Heel_Pumps.png';
-import imgSrc2 from '../../Asses/img/4f959d92-9ea4-4063-a555-bd7d8429c8fe1-95acec417345eea51d16139932577090-480-0.png'
 import ItemCount from '../itemCount/itemCount'
 import '../item/item.css'
-import ItemDetail from '../ItemDetail/ItemDetail'
-import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 import {useHistory} from 'react-router-dom'
 
 

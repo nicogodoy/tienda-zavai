@@ -1,12 +1,21 @@
-
 import React from 'react'
-//import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer'
-import { Card, ListGroup } from 'bootstrap-4-react';
+import { useState, useEffect } from "react";
+import { Card, ListGroup,Button } from 'bootstrap-4-react';
 import imgSrc from '../../Asses/img/Red_High_Heel_Pumps.png';
-//import imgSrc2 from '../../Asses/img/4f959d92-9ea4-4063-a555-bd7d8429c8fe1-95acec417345eea51d16139932577090-480-0.png'
 import {useHistory} from 'react-router-dom'
+import ItemCountContainer from '../itemCount/itemCount'
+
 
 export default function ItemDetail({product}) {
+
+  //const [quantityProductsAdded, setQuantityProductsAdded] = useState([]);
+
+  //const [showFinishBuy, setshowFinishBuy] = useState(false);
+
+  // useEffect(() => {
+  //   setQuantityProductsAdded(quantityProductsAdded);
+  // }, []);
+
   let history=useHistory()
     return (
 
@@ -22,13 +31,15 @@ export default function ItemDetail({product}) {
           
         </Card.Body>
         <Card.Footer>
-          <Card.Link href="#" onClick={()=>history.push('/')}>Volver</Card.Link>
+          <Card.Link href="#" onClick={()=>history.push(`/`)}>Volver al home</Card.Link>
         </Card.Footer>
       </Card>
         
+       
+
       
-        </div>
-    )
+    </div>
+  )
 }
 
 

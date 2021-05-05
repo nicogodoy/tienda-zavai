@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Navbar, Nav, Button, Dropdown, Form, Collapse } from 'bootstrap-4-react';
 import './navb.css';
 import CartWidget from "../cardWidget/cartWidget";
-import {BrowserRouter , Route, Switch} from 'react-router-dom';
 import {useHistory} from 'react-router-dom'
 
 

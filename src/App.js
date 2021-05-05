@@ -5,7 +5,7 @@ import ItemListContainers from './component/container/itemListContainers'
 import {BrowserRouter , Route, Switch} from 'react-router-dom';
 import ItemListContainer from './component/itemListContainer/itemListContainer'
 import ItemDetailContainer from './component/ItemDetailContainer/ItemDetailContainer'
-import Item from './component/item/item'
+
 
 function App() {
   return (
@@ -24,16 +24,7 @@ function App() {
       </Switch>
     </BrowserRouter>
 
-    //  <div className="App">
-      
-    //   <Nav/>
-    //   <ItemListContainers greeting="Villanas store le da la bienvenida! :)"/>
-      
-    //   <ItemListContainer/>
-    //   <ItemDetailContainer />
-      
-      
-    // </div>
+
   );
 }
 
