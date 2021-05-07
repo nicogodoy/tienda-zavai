@@ -1,5 +1,17 @@
+import db from '../firebase/index'
 
-const getItems = new Promise ((resolve,reject)=>{
+const itemColeccion=db.collection('category')
+
+
+export function getItemFire(){
+ return itemColeccion.get()
+ .then(snapshot=>{
+     return snapshot.docs.map(doc=>doc.data())
+ })
+}
+
+
+export const getItems = new Promise ((resolve,reject)=>{
     setTimeout(()=>{
         fetch('https://raw.githubusercontent.com/nicogodoy/tienda-zavai/main/src/Asses/data/data.json')
         .then(response=>response.json())
@@ -9,6 +21,7 @@ const getItems = new Promise ((resolve,reject)=>{
     },0)
 })
 
-module.exports={
-   getItems
-}
+// module.exports={
+//    getItems,
+   
+// }

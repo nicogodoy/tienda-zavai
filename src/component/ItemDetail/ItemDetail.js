@@ -1,20 +1,21 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import { Card, ListGroup,Button } from 'bootstrap-4-react';
+import { Card, ListGroup ,Button,ButtonGroup } from 'bootstrap-4-react';
 import imgSrc from '../../Asses/img/Red_High_Heel_Pumps.png';
 import {useHistory} from 'react-router-dom'
-import ItemCountContainer from '../itemCount/itemCount'
+import ItemCountContainers from '../itemCountContainers/itemCountContainers'
+//import ItemCount from '../itemCount/itemCount'
 
 
 export default function ItemDetail({product}) {
 
-  //const [quantityProductsAdded, setQuantityProductsAdded] = useState([]);
+  // const [quantityProductsAdded, setQuantityProductsAdded] = useState([]);
 
-  //const [showFinishBuy, setshowFinishBuy] = useState(false);
+  // const [showFinishBuy, setshowFinishBuy] = useState();
 
-  // useEffect(() => {
-  //   setQuantityProductsAdded(quantityProductsAdded);
-  // }, []);
+  //  useEffect(() => {
+  //    setQuantityProductsAdded(quantityProductsAdded);
+  //  }, []);
 
   let history=useHistory()
     return (
@@ -35,6 +36,7 @@ export default function ItemDetail({product}) {
         </Card.Footer>
       </Card>
         
+
        
 
       
@@ -43,3 +45,18 @@ export default function ItemDetail({product}) {
 }
 
 
+// {/* ITEM DELCONTADOR */}
+// <ItemCountContainers
+// product={product}
+// setQuantityProductsAdded={setQuantityProductsAdded}
+// setshowFinishBuy={setshowFinishBuy}
+// />
+
+// {/* ITEM TERMINAR COMPRA */}
+// {showFinishBuy ? (
+// <ButtonGroup size="lg" className="mb-2">
+//   <Button onClick={() => history.push("/cart")}>
+//     Finalizar compra
+//   </Button>
+// </ButtonGroup>
+// ) : null}

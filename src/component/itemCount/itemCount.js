@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./itemCount.css";
 import { Button } from "bootstrap-4-react";
 
-export default function ItemCount({ stock, initial, onAdd }) {
+export default function ItemCount({ stock, initial, onAdd, }) {
   const [number, setNumber] = useState(initial);
 
   

@@ -5,12 +5,14 @@ import ItemListContainers from './component/container/itemListContainers'
 import {BrowserRouter , Route, Switch} from 'react-router-dom';
 import ItemListContainer from './component/itemListContainer/itemListContainer'
 import ItemDetailContainer from './component/ItemDetailContainer/ItemDetailContainer'
+import {CartContex} from '../../../Tienda Zavai/my-app/src/component/Context/cartContex'
 
 
 function App() {
   return (
     <BrowserRouter>
       <Navb/>
+      <CartContex>
       <Switch>
       <Route exact path="/">
       <ItemListContainers/>
@@ -22,6 +24,7 @@ function App() {
       <ItemDetailContainer />
       </Route>
       </Switch>
+      </CartContex>
     </BrowserRouter>
 
 
