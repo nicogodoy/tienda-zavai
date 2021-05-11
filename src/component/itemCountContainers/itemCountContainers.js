@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import ItemCount from '../itemCount/itemCount'
 
+
 export default function ItemCountContainer({product, setQuantityProductsAdded, setshowFinishBuy}) {
   
-  const [item, setItem] = useState(0);
+  const [item, setItem] = useState(1);
   //Cantidad de item que pusiste en el contador
 
   const [stock, setStock] = useState(5);
@@ -29,7 +30,7 @@ export default function ItemCountContainer({product, setQuantityProductsAdded, s
       if (stock > item) {
           setItem(item + 1);
       } else {
-          alert('No tenemos suficiente stock')
+          alert('No tenemos stock')
       }
   }
 
@@ -38,7 +39,7 @@ export default function ItemCountContainer({product, setQuantityProductsAdded, s
     if (item > 1) {
       setItem(item - 1);
     } else {
-      alert("Tiene que agregar al menos un producto");
+      alert("Se necesita de algun producto para agregar al carrito");
     }
   }
 

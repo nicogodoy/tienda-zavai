@@ -1,49 +1,34 @@
-import React, { useState } from "react";
-import "./itemCount.css";
 import { Button } from "bootstrap-4-react";
-
-export default function ItemCount({ stock, initial, onAdd, }) {
-  const [number, setNumber] = useState(initial);
-
-  
-  let ItemQuantity=number;
-
-  function increment() {
-    if (number < stock) {
-      setNumber(number + 1);
-    } else {
-      return alert("no hay mas stock de este producto");
-    }
-  }
-
-  function decrement() {
-    if (number) {
-      setNumber(number - 1);
-    }
-  }
+ 
+export default function ItemCount({ onAdd,onIncrement, onDecrement, itemQuantity}) {
+ 
 
   return (
    
     <div className="container">
-      <div className="butons-container">
-        <Button secondary outline onClick={decrement}>
+       <div className="butons-container">
+        <Button secondary outline onClick={onDecrement}>
           -
         </Button>
-        <div className="div-number">{number}</div>
-        <Button secondary outline onClick={increment}>
+        <div className="div-number">{itemQuantity}</div>
+        <Button secondary outline onClick={onIncrement}>
           +
         </Button>
       </div>
+
       <div>
         {
-          ItemQuantity > 0 ?(
+          itemQuantity > 0 ?(
 
-        <Button onClick={onAdd} success outline disabled={number === 0 || number >= 6}>
+        <Button onClick={onAdd} success outline >
           Agregar 
         </Button>
           ):null
         }
+        
       </div>
+     
     </div>
   );
 }
+
