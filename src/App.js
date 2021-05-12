@@ -6,7 +6,7 @@ import {BrowserRouter , Route, Switch} from 'react-router-dom';
 import ItemListContainer from './component/itemListContainer/itemListContainer'
 import ItemDetailContainer from './component/ItemDetailContainer/ItemDetailContainer'
 import {CartContex} from '../../../Tienda Zavai/my-app/src/component/Context/cartContex'
-
+import Cart from './component/cart/cart'
 
 function App() {
   return (
@@ -22,6 +22,9 @@ function App() {
       </Route>
       <Route path="/item/:id">
       <ItemDetailContainer />
+      </Route>
+      <Route path="/cart">
+        <Cart/>
       </Route>
       </Switch>
       </CartContex>

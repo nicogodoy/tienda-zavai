@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { createContext } from 'react';
 
-
 export const CartContext = createContext([])
 
 
@@ -39,12 +38,18 @@ export function CartContex(product){
     
     function removeItem(id) {
       const newToCart = cart.filter((item) => item.id !== id);
-      setCart(newToCart);
+      
       console.log(`eliminar item id ${id}`)
+      const modifieProduct= cart.filter((item)=>item.id === id)
+      const newModifieProdcut={...modifieProduct.item,quantity:modifieProduct.quantity-1}
+      setCart([...newToCart,newModifieProdcut])
   }
+
+
 
     return <CartContext.Provider value={{setCartItem, setCart, clear, removeItem, cart}}{...product} /> 
     
 }
+
 
 
