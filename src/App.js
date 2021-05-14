@@ -7,29 +7,14 @@ import ItemListContainer from './component/itemListContainer/itemListContainer'
 import ItemDetailContainer from './component/ItemDetailContainer/ItemDetailContainer'
 import {CartContex} from '../../../Tienda Zavai/my-app/src/component/Context/cartContex'
 import Cart from './component/cart/cart'
+import AppRouter from './component/appRouter/appRouter'
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navb/>
-      <CartContex>
-      <Switch>
-      <Route exact path="/">
-      <ItemListContainers/>
-      </Route>
-       <Route  path="/category/:categoryId">
-      <ItemListContainer/>
-      </Route>
-      <Route path="/item/:id">
-      <ItemDetailContainer />
-      </Route>
-      <Route path="/cart">
-        <Cart/>
-      </Route>
-      </Switch>
-      </CartContex>
-    </BrowserRouter>
-
+     
+    <CartContex>
+      <AppRouter/>
+    </CartContex>
 
   );
 }

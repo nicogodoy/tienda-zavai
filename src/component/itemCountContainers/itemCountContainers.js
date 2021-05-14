@@ -5,7 +5,7 @@ import {CartContex} from '../Context/cartContex'
 
 
 export default function ItemCountContainer({product, setQuantityProductsAdded, setshowFinishBuy}) {
-  const {setCart}= useContext(CartContex)
+  //const {setCart}= useContext(CartContex)
 
   const [item, setItem] = useState(1);
   //Cantidad de item que pusiste en el contador
@@ -25,8 +25,8 @@ export default function ItemCountContainer({product, setQuantityProductsAdded, s
     console.log(`Se ejecutó función onAdd`)
     console.log(product)
     setItemAdd(true)
-     //setQuantityProductsAdded( { productId: product.id, productPrice: product.price, quantity: item} )
-    setCart(product)
+    setQuantityProductsAdded( { productId: product.id, productPrice: product.price, quantity: item} )
+    //setCart(product)
     setshowFinishBuy(true);
   }
 

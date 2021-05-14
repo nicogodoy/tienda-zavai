@@ -13,7 +13,7 @@ export function CartContex(product){
       }
 
     
-      function setCartItem({id, title, quantity}) {
+      function addCart({id, title, quantity}) {
         const isInCart = isCurrentlyInCart(id)
         if (isInCart) {
           const newToCart = cart.map(item => {
@@ -36,7 +36,7 @@ export function CartContex(product){
     }
 
     
-    function removeItem(id) {
+    function deleteItem(id) {
       const newToCart = cart.filter((item) => item.id !== id);
       
       console.log(`eliminar item id ${id}`)
@@ -47,7 +47,7 @@ export function CartContex(product){
 
 
 
-    return <CartContext.Provider value={{setCartItem, setCart, clear, removeItem, cart}}{...product} /> 
+    return <CartContext.Provider value={{ addCart, setCart, clear, deleteItem, cart}}{...product} /> 
     
 }
 
