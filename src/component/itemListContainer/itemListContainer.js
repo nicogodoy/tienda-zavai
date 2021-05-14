@@ -1,23 +1,34 @@
 import React, { useState, useEffect } from "react";
 import Item from "../item/item";
 import { useParams } from "react-router-dom";
-import { getItems } from "../../servicie/servicie";
+import { getItems, getItemFire} from "../../servicie/servicie";
 
 export default function ItemListContainer() {
   const [item, setItems] = useState([]);
   const { categoryId } = useParams();
   console.log(categoryId);
 
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     getItems.then((data) => {
+  //       const productCategory = data.filter(
+  //         (product) => product.categoryId === categoryId
+  //       );
+  //       setItems(productCategory);
+  //     });
+  //   }, 1000);
+  // }, [categoryId]);
+
+
   useEffect(() => {
     setTimeout(() => {
-      getItems.then((data) => {
-        const productCategory = data.filter(
-          (product) => product.categoryId === categoryId
-        );
+      getItemFire().then((data) => {
+        const productCategory = data.filter((product) => product.categoryId === categoryId);
+        console.log(productCategory);
         setItems(productCategory);
       });
-    }, 1000);
-  }, [categoryId]);
+    },0);
+  },[categoryId]);
 
   return (
     <div style={{ display: "flex", justifyContent: "space-between" }}>
