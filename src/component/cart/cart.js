@@ -20,10 +20,11 @@ import { Button } from 'bootstrap-4-react';
 
 
 
-export default function CartPage({ itemSale }) {
+export default function CartPage({product}) {
     
-  const { addCart, deleteItem } = useContext(CartContex);
-  console.log(itemSale); //para test
+  const { addCart, deleteItem} = useContext(CartContex);
+  //const [ deleteItem] = useContext(CartContex);
+  console.log(product); //para test
 
   function capitalizarPrimeraLetra(str) {
       return str.charAt(0).toUpperCase() + str.slice(1);
@@ -31,11 +32,11 @@ export default function CartPage({ itemSale }) {
   
   function increaseQuantity(){
       const newItem = {
-          id: itemSale.id,
-          category: itemSale.category,
-          title: itemSale.title,
-          price: itemSale.price,
-          quantity: itemSale.quantity +1
+          id: product.id,
+          category: product.category,
+          title: product.title,
+          price: product.price,
+          quantity: product.quantity +1
       };
       console.log(newItem);
       addCart(newItem);
@@ -43,11 +44,11 @@ export default function CartPage({ itemSale }) {
 
   function reduceQuantity(){
       const newItem = {
-          id: itemSale.id,
-          category: itemSale.category,
-          title: itemSale.title,
-          price: itemSale.price,
-          quantity: itemSale.quantity -1
+          id: product.id,
+          category: product.category,
+          title: product.title,
+          price: product.price,
+          quantity: product.quantity -1
       };
       console.log(newItem);
       addCart(newItem);
@@ -55,23 +56,23 @@ export default function CartPage({ itemSale }) {
 
   return (
       <tr>
-          <th>{itemSale.category}</th>
-          <td>{itemSale.title}</td>
+          <th>{product.category}</th>
+          <td>{ product.title}</td>
           <td>
               {
-                  itemSale.quantity < 5 ? <Button type="button" onClick={increaseQuantity}>+</Button> : <Button type="button" disabled>+</Button>
+                product.quantity < 5 ? <Button type="button" onClick={increaseQuantity}>+</Button> : <Button type="button" disabled>+</Button>
               }
-              <span className="cart-visual">{itemSale.quantity}</span>
+              <span className="cart-visual">{ product.quantity}</span>
               {
-                  itemSale.quantity > 1 ? <Button type="button" onClick={reduceQuantity}>-</Button> : <Button disabled>-</Button>
+                   product.quantity > 1 ? <Button type="button" onClick={reduceQuantity}>-</Button> : <Button disabled>-</Button>
               }
           </td>
           <td>
-              <Button type="button" onClick={() => deleteItem(itemSale.id)}>
+              <Button type="button" onClick={() => deleteItem( product.id)}>
                   Borrar
               </Button>
           </td>
-          <td>$ <span>{(itemSale.price*itemSale.quantity).toFixed(2)}</span></td>
+          <td>$ <span>{( product.price* product.quantity).toFixed(2)}</span></td>
       </tr>
   );
 }

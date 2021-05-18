@@ -6,6 +6,7 @@ import { getItems, getItemFire} from "../../servicie/servicie";
 export default function ItemListContainer() {
   const [item, setItems] = useState([]);
   const { categoryId } = useParams();
+  
   console.log(categoryId);
 
   // useEffect(() => {
@@ -40,6 +41,7 @@ export default function ItemListContainer() {
           color={xItem.color}
           id={xItem.id}
           key={xItem.id}
+          
         />
       ))}
     </div>

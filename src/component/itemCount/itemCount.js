@@ -1,6 +1,6 @@
 import { Button } from "bootstrap-4-react";
  
-export default function ItemCount({ onAdd,onIncrement, onDecrement, itemQuantity}) {
+export default function ItemCount({ onAdd,onIncrement, onDecrement, itemQuantity,setCart }) {
  
 
   return (

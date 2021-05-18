@@ -5,10 +5,15 @@ import imgSrc from "../../Asses/img/Red_High_Heel_Pumps.png";
 import { useHistory } from "react-router-dom";
 import ItemCountContainers from "../itemCountContainers/itemCountContainers";
 
-export default function ItemDetail({ product,onDecrement,onIncrement,itemQuantity }) {
+export default function ItemDetail({ product,id,description,precio,onDecrement,onIncrement,itemQuantity }) {
+
+
+  
   const [quantityProductsAdded, setQuantityProductsAdded] = useState([]);
 
   const [showFinishBuy, setshowFinishBuy] = useState();
+
+  
 
   useEffect(() => {
     setQuantityProductsAdded(quantityProductsAdded);
@@ -17,6 +22,7 @@ export default function ItemDetail({ product,onDecrement,onIncrement,itemQuantit
   let history = useHistory();
   return (
     <div style={{ display: "flex", flexDireccion: "column" }}>
+      <div className="infoProduct" key={id }></div>
       <Card style={{ width: "14rem" }}>
         <Card.Header>Zapatos</Card.Header>
         <Card.Image src={imgSrc} />

@@ -16,6 +16,8 @@ export default function ItemCountContainer({product, setQuantityProductsAdded, s
   const [itemAdd, setItemAdd] = useState(false);
   // Seteamos el item y su cantidad
 
+  const[Cart,SetCart]= useState([])
+
   useEffect( ()=> {
     console.log('Se actualizó el componente de la botonera')
   }, [item])
@@ -26,7 +28,7 @@ export default function ItemCountContainer({product, setQuantityProductsAdded, s
     console.log(product)
     setItemAdd(true)
     setQuantityProductsAdded( { productId: product.id, productPrice: product.price, quantity: item} )
-    //setCart(product)
+    SetCart(product)
     setshowFinishBuy(true);
   }
 
@@ -55,6 +57,7 @@ export default function ItemCountContainer({product, setQuantityProductsAdded, s
       onAdd={onAdd}
       itemQuantity={item}
       itemAdded={setItemAdd}
+      setCart={Cart}
     />
   );
 }
