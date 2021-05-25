@@ -9,18 +9,6 @@ export default function ItemListContainer() {
   
   console.log(categoryId);
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     getItems.then((data) => {
-  //       const productCategory = data.filter(
-  //         (product) => product.categoryId === categoryId
-  //       );
-  //       setItems(productCategory);
-  //     });
-  //   }, 1000);
-  // }, [categoryId]);
-
-
   useEffect(() => {
     setTimeout(() => {
       getItemFire().then((data) => {
@@ -47,25 +35,3 @@ export default function ItemListContainer() {
     </div>
   );
 }
-// function useQuery() {
-// return new URLSearchParams(useLocation().search);
-
-//  let query= useQuery();
-//   query.get("zapatos");
-
-//  itemList.map(xIteLis =>(console.log(xIteLis)));
-//  setItems(itemList);
-
-// useEffect(() => {
-//   setTimeout(() => {
-//     fetch(
-//       "https://raw.githubusercontent.com/nicogodoy/tienda-zavai/main/src/Asses/data/data.json"
-//       )
-//       .then((response) => response.json())
-//       .then((data) =>{
-//         const productCategory= data.filter(product=>product.categoryId===categoryId)
-//         setItems(productCategory);
-//       } )
-
-//     }, 2000);
-// }, [categoryId]);

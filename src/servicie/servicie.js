@@ -2,7 +2,7 @@ import db from '../firebase/index'
 //import firebase from 'firebase/app'
 //import 'firebase/firestore'
 
-const itemColeccion=db.collection('category')
+const itemColeccion=db.collection('category','orden')
 
 
 export function getItemFire(){
@@ -10,6 +10,22 @@ export function getItemFire(){
  .then(snapshot=>{
      return snapshot.docs.map(doc=>doc.data())
  })
+}
+
+export function getItemOrder(){
+    return itemColeccion.get()
+    .then(snapshot=>{
+        return snapshot.docs.map(doc=>doc.data())
+    })
+   }
+
+export function getProductsById(productId) {
+    const itemById = itemColeccion.doc(productId)
+    return itemById.get()
+    .then(snapShot => {
+        return ({...snapShot.data(), id: snapShot.id})
+    })
+
 }
 
 

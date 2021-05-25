@@ -4,7 +4,7 @@ import {useContext} from 'react'
 import {CartContex} from '../Context/cartContex'
 
 
-export default function ItemCountContainer({product, setQuantityProductsAdded, setshowFinishBuy}) {
+export default function ItemCountContainer({product,id,price,quantity, setQuantityProductsAdded, setshowFinishBuy}) {
   //const {setCart}= useContext(CartContex)
 
   const [item, setItem] = useState(1);
@@ -27,7 +27,7 @@ export default function ItemCountContainer({product, setQuantityProductsAdded, s
     console.log(`Se ejecutó función onAdd`)
     console.log(product)
     setItemAdd(true)
-    setQuantityProductsAdded( { productId: product.id, productPrice: product.price, quantity: item} )
+    setQuantityProductsAdded( { productId: id, productPrice: price, quantity: item} )
     SetCart(product)
     setshowFinishBuy(true);
   }

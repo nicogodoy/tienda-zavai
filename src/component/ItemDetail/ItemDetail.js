@@ -31,8 +31,8 @@ export default function ItemDetail({ product,id,description,precio,onDecrement,o
           <Card.Subtitle mb="1" text="muted">
             Media caña
           </Card.Subtitle>
-          <Card.Text>descripcion:{product.description}</Card.Text>
-          <Card.Text>Precio:{product.precio}</Card.Text>
+          <Card.Text>descripcion:{description}</Card.Text>
+          <Card.Text>Precio:{precio}</Card.Text>
         </Card.Body>
         <Card.Footer>
           <Card.Link>

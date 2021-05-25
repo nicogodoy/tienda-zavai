@@ -1,78 +1,61 @@
-// import React from 'react'
-// import {useContext} from 'react'
-// import {CartContex} from '../Context/cartContex'
-
-// export default function Cart() {
-//    const cart= useContext(CartContex)
-//    console.log(cart)
-//     return (
-//         <div>
-//             hola
-//         </div>
-//     )
-
-// }
-
- import React from 'react'
- import {useContext} from 'react'
- import {CartContex} from '../Context/cartContex'
+import React from 'react'
+import {useContext} from 'react'
+import {CartContext} from '../Context/cartContex'
 import { Button } from 'bootstrap-4-react';
 
 
 
-export default function CartPage({product}) {
-    
-  const { addCart, deleteItem} = useContext(CartContex);
-  //const [ deleteItem] = useContext(CartContex);
-  console.log(product); //para test
+export default function CartPage(product) {
+   
+ const { addCart, deleteItem} = useContext(CartContext);
+ const { cart } = useContext(CartContext);
+ console.log(cart)
+ 
+ console.log(product); //para test
 
-  function capitalizarPrimeraLetra(str) {
-      return str.charAt(0).toUpperCase() + str.slice(1);
-  }
-  
-  function increaseQuantity(){
-      const newItem = {
-          id: product.id,
-          category: product.category,
-          title: product.title,
-          price: product.price,
-          quantity: product.quantity +1
-      };
-      console.log(newItem);
-      addCart(newItem);
-  }
+ function capitalizarPrimeraLetra(str) {
+     return str.charAt(0).toUpperCase() + str.slice(1);
+ }
+ 
+ function increaseQuantity(){
+     const newItem = {
+         id: product.id,
+         category: product.category,
+         title: product.title,
+         price: product.price,
+         quantity: product.quantity +1
+     };
+     console.log(newItem);
+     addCart(newItem);
+ }
 
-  function reduceQuantity(){
-      const newItem = {
-          id: product.id,
-          category: product.category,
-          title: product.title,
-          price: product.price,
-          quantity: product.quantity -1
-      };
-      console.log(newItem);
-      addCart(newItem);
-  }
+ function reduceQuantity(){
+     const newItem = {
+         id: product.id,
+         category: product.category,
+         title: product.title,
+         price: product.price,
+         quantity: product.quantity -1
+     };
+     console.log(newItem);
+     addCart(newItem);
+ }
 
-  return (
-      <tr>
-          <th>{product.category}</th>
-          <td>{ product.title}</td>
-          <td>
-              {
-                product.quantity < 5 ? <Button type="button" onClick={increaseQuantity}>+</Button> : <Button type="button" disabled>+</Button>
-              }
-              <span className="cart-visual">{ product.quantity}</span>
-              {
-                   product.quantity > 1 ? <Button type="button" onClick={reduceQuantity}>-</Button> : <Button disabled>-</Button>
-              }
-          </td>
-          <td>
-              <Button type="button" onClick={() => deleteItem( product.id)}>
-                  Borrar
-              </Button>
-          </td>
-          <td>$ <span>{( product.price* product.quantity).toFixed(2)}</span></td>
-      </tr>
-  );
+ return (
+     <tr>
+        {cart.map((product) => {
+           return(
+            <ul key={product.item.id}>
+            <span>{product.item.title}</span>
+            <li>Cantidad: {product.quantity}</li>
+            <li>Precio: {product.item.price}</li>
+            <li>Total por producto: {product.item.price * product.quantity}</li>
+            <li><button onClick={()=>deleteItem(product.item.id)} className={product.item.id}>-</button></li>
+        </ul>
+            
+           )
+        })}
+     </tr>
+ );
 }
+

@@ -10,12 +10,14 @@ import Cart from './component/cart/cart'
 import AppRouter from './component/appRouter/appRouter'
 import {CartContex} from './component/Context/cartContex'
 
+
 function App() {
   return (
      
     <CartContex>
       <AppRouter/>
     </CartContex>
+    
 
   );
 }
