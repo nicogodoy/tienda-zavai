@@ -1,61 +1,143 @@
-import React from 'react'
-import {useContext} from 'react'
-import {CartContext} from '../Context/cartContex'
-import { Button } from 'bootstrap-4-react';
+ import React from 'react'
+ import {useContext} from 'react'
+ import {CartContext} from '../Context/cartContex'
+ import { Button } from 'bootstrap-4-react';
+import ItemCart from '../itemCart/itemCart'
+import { Link } from 'react-router-dom';
 
-
-
-export default function CartPage(product) {
+export default function CartContainer() {
+    const{ cart, clear } = useContext(CartContext);
+    let total = 0;
    
- const { addCart, deleteItem} = useContext(CartContext);
- const { cart } = useContext(CartContext);
- console.log(cart)
- 
- console.log(product); //para test
 
- function capitalizarPrimeraLetra(str) {
-     return str.charAt(0).toUpperCase() + str.slice(1);
- }
- 
- function increaseQuantity(){
-     const newItem = {
-         id: product.id,
-         category: product.category,
-         title: product.title,
-         price: product.price,
-         quantity: product.quantity +1
-     };
-     console.log(newItem);
-     addCart(newItem);
- }
+    for(let i =0; i< cart.length; i++) {
+        console.log(cart);
+        total = total + cart[i].items.price * cart[i].quantity;
+    }
+    
+     return(
+        <div className="container">
+            <h2 >Este es tu carrito</h2>
+            <div>
+           
+                {cart.lenght === 0 ? (
+                    alert("No hay productos en el carrito")
+                ) : (
+                    cart.map((item, key) => 
+                    <ItemCart key={key} {...item}/>)
+                    )}
+                    
+                    <div>
+                        <h3 >TOTAL A PAGAR $ {total}</h3>
+                    </div>
+                    <Button onClick={() =>clear()} >Vaciar Carrito</Button> 
 
- function reduceQuantity(){
-     const newItem = {
-         id: product.id,
-         category: product.category,
-         title: product.title,
-         price: product.price,
-         quantity: product.quantity -1
-     };
-     console.log(newItem);
-     addCart(newItem);
- }
+                    <Link to="/">
 
- return (
-     <tr>
-        {cart.map((product) => {
-           return(
-            <ul key={product.item.id}>
-            <span>{product.item.title}</span>
-            <li>Cantidad: {product.quantity}</li>
-            <li>Precio: {product.item.price}</li>
-            <li>Total por producto: {product.item.price * product.quantity}</li>
-            <li><button onClick={()=>deleteItem(product.item.id)} className={product.item.id}>-</button></li>
-        </ul>
-            
-           )
-        })}
-     </tr>
- );
+                    <Button >
+                        Volver a la lista
+                    </Button>
+                    </Link> 
+
+            </div>
+
+
+
+        </div>
+
+    )
 }
+
+
+
+
+
+
+
+
+
+
+
+// import React from 'react'
+// import {useContext} from 'react'
+// import {CartContext} from '../Context/cartContex'
+// import { Button } from 'bootstrap-4-react';
+
+
+// const Cart = ( {title,price,quantity,id}) => {
+//     const { removeItem,name } = useContext(CartContext);
+//    //console.log(items)
+
+//     return(
+//         <div>
+//             <h1>hola {name}</h1>
+//             <h3>Producto: {title}</h3>
+          
+//             <h2>Cantidad: {quantity}</h2>
+//             <h2>Precio $ {price}</h2>
+
+//             <Button className="btn delete-icon-btn"  onClick={() => removeItem(id)} style={{padding:"14px", color:"#8785a2", border:"#8785a2 solid 1px"}}> Eliminar producto</Button>
+            
+
+//         </div>
+//     )
+// }
+// export default Cart;
+
+
+
+
+// export default function CartPage(product) {
+   
+//  const { addCart, deleteItem} = useContext(CartContext);
+//  const { cart } = useContext(CartContext);
+//  console.log(cart)
+ 
+//  console.log(product); 
+
+//  function capitalizarPrimeraLetra(str) {
+//      return str.charAt(0).toUpperCase() + str.slice(1);
+//  }
+ 
+//  function increaseQuantity(){
+//      const newItem = {
+//          id: product.id,
+//          category: product.category,
+//          title: product.title,
+//          price: product.price,
+//          quantity: product.quantity +1
+//      };
+//      console.log(newItem);
+//      addCart(newItem);
+//  }
+
+//  function reduceQuantity(){
+//      const newItem = {
+//          id: product.id,
+//          category: product.category,
+//          title: product.title,
+//          price: product.price,
+//          quantity: product.quantity -1
+//      };
+//      console.log(newItem);
+//      addCart(newItem);
+//  }
+
+//  return (
+//      <tr>
+//         {cart.map(() => {
+//            return(
+//             <ul key={product.item.id}>
+//             <span>{product.item.title}</span>
+//             <li>Cantidad: {product.quantity}</li>
+//             <li>Precio: {product.item.price}</li>
+//             <li>Total por producto: {product.item.price * product.quantity}</li>
+//             <li><button onClick={()=>deleteItem(product.item.id)} className={product.item.id}>-</button></li>
+//         </ul>
+            
+//            )
+//         })}
+//      </tr>
+//  );
+// }
 

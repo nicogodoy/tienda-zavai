@@ -13,7 +13,7 @@ export function CartContex(product){
     function isCurrentlyInCart (id) {
         return cart.some(item => item.id === id)
       }
-      console.log(product.item)
+     
 
       function addCart({id, title, quantity}) {
         const isInCart = isCurrentlyInCart(id)
@@ -49,7 +49,7 @@ export function CartContex(product){
 
 
 
-    return <CartContext.Provider value={{ addCart, setCart, clear, deleteItem, cart}}{...product}/> 
+    return <CartContext.Provider value={{name:'nico', addCart, setCart, clear, deleteItem, cart}}{...product} /> 
     
 }
 
