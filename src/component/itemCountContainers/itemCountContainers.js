@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import ItemCount from '../itemCount/itemCount'
 import {useContext} from 'react'
-import {CartContex} from '../Context/cartContex'
+import {CartContext} from '../Context/CartContext'
 
 
 export default function ItemCountContainer({product,id,price,quantity, setQuantityProductsAdded, setshowFinishBuy}) {
-  //const {setCart}= useContext(CartContex)
+  const {setCart}= useContext(CartContext)
 
   const [item, setItem] = useState(1);
   //Cantidad de item que pusiste en el contador
@@ -16,7 +16,8 @@ export default function ItemCountContainer({product,id,price,quantity, setQuanti
   const [itemAdd, setItemAdd] = useState(false);
   // Seteamos el item y su cantidad
 
-  const[Cart,SetCart]= useState([])
+  //const[Cart,SetCart]= useState([])
+  const [Cart,setonCart] = useState([]);
 
   useEffect( ()=> {
     console.log('Se actualizó el componente de la botonera')
@@ -28,7 +29,8 @@ export default function ItemCountContainer({product,id,price,quantity, setQuanti
     console.log(product)
     setItemAdd(true)
     setQuantityProductsAdded( { productId: id, productPrice: price, quantity: item} )
-    SetCart(product)
+    //setCart({ quantity: item})
+    setonCart({ quantity: item})
     setshowFinishBuy(true);
   }
 

@@ -6,7 +6,7 @@ import Cart from '../cart/cart'
 import ItemListContainers from '../itemListContainer/itemListContainer'
 import ItemListContainer from '../itemListContainer/itemListContainer'
 import Navb from '../navbar/navb/navb'
-import '../Context/cartContex'
+import '../Context/CartContext'
 
 function App() {
   return (

@@ -42,7 +42,7 @@ import {useHistory} from 'react-router-dom'
                  </Navbar.Nav>
                 
                 <Navbar.Brand className="cartWidget">
-                      <CartWidget />
+                      {/* <CartWidget /> */}
                   </Navbar.Brand>
       
                </Collapse>

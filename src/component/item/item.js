@@ -5,6 +5,8 @@ import "../item/item.css";
 import { useHistory } from "react-router-dom";
 
 export default function ShowItem(array) {
+  console.log(array)
+  console.log(array.id)
   let history = useHistory();
   return (
     <Card style={{ width: "12rem" }}>

@@ -1,44 +1,48 @@
  import React from 'react'
  import {useContext} from 'react'
- import {CartContext} from '../Context/cartContex'
+ import {CartContext} from '../Context/CartContext'
  import { Button } from 'bootstrap-4-react';
 import ItemCart from '../itemCart/itemCart'
 import { Link } from 'react-router-dom';
 
-export default function CartContainer() {
+export default function CartContainer(product) {
     const{ cart, clear } = useContext(CartContext);
     let total = 0;
-   
+  console.log(cart)
 
-    for(let i =0; i< cart.length; i++) {
-        console.log(cart);
-        total = total + cart[i].items.price * cart[i].quantity;
-    }
+    // for(let i =0; i< cart.length; i++) {
+    //     console.log(cart);
+    //     console.log(cart[i].product.precio)
+    //     console.log(typeof(cart[i].product.precio))
+    //     total = total + cart[i].product.precio * cart[i].quantity;
+    
+    // }
     
      return(
-        <div className="container">
+        <div >
             <h2 >Este es tu carrito</h2>
-            <div>
+        <div>
+           
            
                 {cart.lenght === 0 ? (
                     alert("No hay productos en el carrito")
                 ) : (
-                    cart.map((item, key) => 
-                    <ItemCart key={key} {...item}/>)
+                    cart.map((item, key,product) => 
+                    <ItemCart key={product.key} {...item}/>)
                     )}
                     
                     <div>
-                        <h3 >TOTAL A PAGAR $ {total}</h3>
+                        <h3 >Total $ {total}</h3>
                     </div>
                     <Button onClick={() =>clear()} >Vaciar Carrito</Button> 
 
                     <Link to="/">
 
                     <Button >
-                        Volver a la lista
+                        Volver al home
                     </Button>
                     </Link> 
-
+                    
             </div>
 
 
