@@ -1,7 +1,8 @@
-import { Button } from "bootstrap-4-react";
+import { Button,ButtonGroup } from "bootstrap-4-react";
+import { useHistory } from "react-router-dom";
  
-export default function ItemCount({ onAdd,onIncrement, onDecrement, itemQuantity,setCart }) {
- 
+export default function ItemCount({ onAdd,onIncrement, onDecrement, itemQuantity,setCart,itemAdded  }) {
+  let history = useHistory();
 
   return (
    
@@ -25,7 +26,13 @@ export default function ItemCount({ onAdd,onIncrement, onDecrement, itemQuantity
         </Button>
           ):null
         }
-        
+         {/* {
+        itemAdded ? (
+          <ButtonGroup size="lg" className="mb-2">
+            <Button onClick={()=>history.push('/cart')}>Finalizar compra</Button>
+          </ButtonGroup>
+        ) : null 
+          }  */}
       </div>
      
     </div>

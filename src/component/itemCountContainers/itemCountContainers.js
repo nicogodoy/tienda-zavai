@@ -4,8 +4,9 @@ import {useContext} from 'react'
 import {CartContext} from '../Context/CartContext'
 
 
-export default function ItemCountContainer({product,id,price,quantity, setQuantityProductsAdded, setshowFinishBuy}) {
-  const {setCart}= useContext(CartContext)
+export default function ItemCountContainer({product,id,price,cantidad, setQuantityProductsAdded, setshowFinishBuy}) {
+  
+  //const {setonCart}= useState(CartContext)
 
   const [item, setItem] = useState(1);
   //Cantidad de item que pusiste en el contador
@@ -19,6 +20,9 @@ export default function ItemCountContainer({product,id,price,quantity, setQuanti
   //const[Cart,SetCart]= useState([])
   const [Cart,setonCart] = useState([]);
 
+  const {setsomethingInCart} = useContext(CartContext)
+  // Función que cambiar el valor para saber si hay algo en el carrto
+
   useEffect( ()=> {
     console.log('Se actualizó el componente de la botonera')
   }, [item])
@@ -27,7 +31,7 @@ export default function ItemCountContainer({product,id,price,quantity, setQuanti
   function onAdd(quantity) {
     console.log(`Se ejecutó función onAdd`)
     console.log(product)
-    setItemAdd(true)
+    //setItemAdd(true)
     setQuantityProductsAdded( { productId: id, productPrice: price, quantity: item} )
     //setCart({ quantity: item})
     setonCart({ quantity: item})
@@ -59,7 +63,10 @@ export default function ItemCountContainer({product,id,price,quantity, setQuanti
       onAdd={onAdd}
       itemQuantity={item}
       itemAdded={setItemAdd}
-      setCart={Cart}
+      //setCart={Cart}
+      setonCart={Cart}
     />
   );
 }
+
+

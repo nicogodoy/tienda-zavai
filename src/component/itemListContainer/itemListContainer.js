@@ -19,6 +19,7 @@ export default function ItemListContainer() {
     },0);
   },[categoryId]);
 
+
   return (
     <div style={{ display: "flex", justifyContent: "space-between" }}>
       {item.map((xItem) => (
@@ -29,6 +30,7 @@ export default function ItemListContainer() {
           color={xItem.color}
           id={xItem.id}
           key={xItem.id}
+          itemQuantity={xItem.itemQuantity}
           
         />
       ))}

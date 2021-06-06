@@ -39,7 +39,5 @@ export const getItems = new Promise ((resolve,reject)=>{
     // },0)
 })
 
-// module.exports={
-//    getItems,
-   
-// }
+
+

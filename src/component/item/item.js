@@ -3,6 +3,7 @@ import { Card, ListGroup, Button } from "bootstrap-4-react";
 import imgSrc from "../../Asses/img/Red_High_Heel_Pumps.png";
 import "../item/item.css";
 import { useHistory } from "react-router-dom";
+import ItemCountContainers from '../itemCountContainers/itemCountContainers'
 
 export default function ShowItem(array) {
   console.log(array)
@@ -13,10 +14,10 @@ export default function ShowItem(array) {
       <Card.Image src={imgSrc} top />
       <Card.Body>
         <Card.Title>Villanas Store</Card.Title>
-        <Card.Text>Zapatos</Card.Text>
+        {/* <Card.Text>Zapatos</Card.Text> */}
       </Card.Body>
       <ListGroup flush>
-        <ListGroup.Item>Nombre:{array.title}</ListGroup.Item>
+        <ListGroup.Item>{array.title}</ListGroup.Item>
       </ListGroup>
       <Card.Body>
         <Card.Link
@@ -36,6 +37,7 @@ export default function ShowItem(array) {
           >
             Informacion
           </Button>
+          {/* <ItemCountContainers array={array}/> */}
         </Card.Link>
       </Card.Body>
     </Card>

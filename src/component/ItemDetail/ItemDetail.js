@@ -1,36 +1,44 @@
 import React from "react";
-import { useState, useEffect,useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Card, Button, ButtonGroup } from "bootstrap-4-react";
 import imgSrc from "../../Asses/img/Red_High_Heel_Pumps.png";
 import { useHistory } from "react-router-dom";
 import ItemCountContainers from "../itemCountContainers/itemCountContainers";
 //import {CartContex} from '../Context/cartContex'
-import {CartContext} from '../Context/CartContext'
+import { CartContext } from "../Context/CartContext";
 
+export default function ItemDetail({ product }) {
+  console.log(product);
+  const { addCart } = useContext(CartContext);
+  console.log(addCart);
 
-export default function ItemDetail( {product}) {
-  console.log(product)
-  const {addCart}=useContext(CartContext)
-  console.log(addCart)
-  
   const [quantityProductsAdded, setQuantityProductsAdded] = useState([]);
+  console.log(quantityProductsAdded.quantity);
 
   const [showFinishBuy, setshowFinishBuy] = useState();
-   
-  function addProduct(){
-    console.log("se ejecuto addP")
-    addCart(product)
-    history.push("/cart")
+
+  function addProduct() {
+    console.log("se ejecuto addP");
+
+    addCart({ precio, cantidad, title });
+
+    history.push("/cart");
   }
 
   useEffect(() => {
     setQuantityProductsAdded(quantityProductsAdded);
   }, []);
 
+  const precio = product.precio;
+  const cantidad = quantityProductsAdded.quantity;
+  const title = product.title;
+  console.log(precio);
+  console.log(cantidad);
+
   let history = useHistory();
   return (
     <div style={{ display: "flex", flexDireccion: "column" }}>
-      <div className="infoProduct" key={product.id }></div>
+      <div className="infoProduct" key={product.id}></div>
       <Card style={{ width: "14rem" }}>
         <Card.Header>Zapatos</Card.Header>
         <Card.Image src={imgSrc} />
@@ -41,26 +49,23 @@ export default function ItemDetail( {product}) {
           </Card.Subtitle>
           <Card.Text>descripcion:{product.description}</Card.Text>
           <Card.Text>Precio:{product.precio}</Card.Text>
+          {/* <Card.Text>cantidad:{quantityProductsAdded.quantity}</Card.Text> */}
         </Card.Body>
         <Card.Footer>
           <Card.Link>
-            {/* ITEM DELCONTADOR*/}
             <ItemCountContainers
+              // product={product}
               product={product}
               setQuantityProductsAdded={setQuantityProductsAdded}
               setshowFinishBuy={setshowFinishBuy}
             />
 
-            {/* ITEM TERMINAR COMPRA */}
             {showFinishBuy ? (
               <ButtonGroup size="lg" className="mb-2">
-                <Button  onClick={() =>addProduct()}>
-                  Finalizar compra
-                </Button>
+                <Button onClick={() => addProduct()}>Finalizar compra</Button>
               </ButtonGroup>
             ) : null}
           </Card.Link>
-          
         </Card.Footer>
       </Card>
     </div>

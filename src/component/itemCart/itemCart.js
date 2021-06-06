@@ -4,25 +4,27 @@ import {CartContext} from '../Context/CartContext'
 import { Button } from 'bootstrap-4-react';
 
 
-const ItemCart = ( {price,quantity,id,precio}) => {
-    const { removeItem,cart } = useContext(CartContext);
-   console.log(cart)
+const ItemCart = ( {cantidad,id,precio,title}) => {
+    const { removeItem,onCart } = useContext(CartContext);
+   console.log(onCart)
+   console.log(cantidad)
    return (
     <div>
       <h1>Bienvenido a su carrito</h1>
 
       {/* Si hay algo en el carrito renderizo el listado, o que no hay nada*/}
-      {cart === false ? (
+      {onCart === false ? (
         <h2 >No se ha encontrado productos en el carrito</h2>
       ) : (
-        cart.map((product) => {
+        onCart.map((item) => {
           return (
-            <ul key={product.key}>
-                {product.title}
-                Cantidad: {product.quantity}
-                Precio: {product.precio}
-                <h4>Total del producto: {product.price * product.quantity}</h4>
-                <span><button onClick={()=>removeItem(product.id)} className={product.id}>-</button></span>
+            <ul key={item.key}>
+               <li> {item.title}</li>
+               <li>  Cantidad: {item.cantidad}</li>
+               <li>  Precio: {item.precio}</li>
+                
+                <h4>Total del producto: { item.precio * item.cantidad}</h4>
+                <span><button onClick={()=>removeItem(item.id)} className={item.id}>-</button></span>
             </ul>
           );
         })
@@ -35,18 +37,3 @@ const ItemCart = ( {price,quantity,id,precio}) => {
 }
 export default ItemCart;
 
-
-    // return(
-    //     <div>
-           
-    //        <h2>Producto: {product.id}</h2>
-    //         <h2>Producto: {addCart.product.title}</h2>
-          
-    //         <h2>Cantidad: {quantity}</h2>
-    //         <h2>Precio $ {price}</h2>
-
-    //         <Button className="btn delete-icon-btn"  onClick={() => removeItem(id)}> Eliminar producto</Button>
-            
-
-    //     </div>
-    // )
