@@ -83,7 +83,8 @@ export default function CartContextProvider({ children }) {
     if (id === undefined) {
       console.log("Aún no hay nada en el carrito");
     } else {
-      return onCart.some((productOnCart) => productOnCart.item.id === id);
+      // return onCart.some((productOnCart) => productOnCart.item.id === id);
+      return onCart.some((productOnCart) => productOnCart.id === id);
     }
   }
 
@@ -95,47 +96,51 @@ export default function CartContextProvider({ children }) {
   }
 
   // Función sacar item de la canasta
-  function removeItem(id) {
-    console.log(`Soy función removeItem`);
-    console.log(`Soy el producto con id ${id}`);
+  // function removeItem(id) {
+  //   console.log(`Soy función removeItem`);
+  //   console.log(`Soy el producto con id :${id}`);
 
-    const [productToBeRest] = onCart.filter(
-      (product) => product.item.id === id
-    );
-    console.log("Esto productToBeRest");
-    console.log(productToBeRest);
+  //   const [productToBeRest] = onCart.filter(
+  //     (product) => product.item.id === product.id
+  //   );
+  //   console.log("Esto productToBeRest");
+  //   console.log(productToBeRest);
 
-    const newCart = onCart.filter((product) => product.item.id !== id);
-    console.log("Esto trae newCart");
-    console.log(newCart);
+  //   const newCart = onCart.filter((product) => product.item.id !== id);
+  //   console.log("Esto trae newCart");
+  //   console.log(newCart);
 
-    if (productToBeRest.quantity < 1) {
-      return setonCart([...newCart]);
-    } else {
-      //Resto al producto clickeado -1
-      const newRestedProducto = {
-        item: { ...productToBeRest.item },
-        quantity: productToBeRest.quantity - 1,
-      };
+  //   if (productToBeRest.quantity < 1) {
+  //     return setonCart([...newCart]);
+  //   } else {
+  //     //Resto al producto clickeado -1
+  //     const newRestedProducto = {
+  //       item: { ...productToBeRest.item },
+  //       quantity: productToBeRest.quantity - 1,
+  //     };
 
-      //Si ese producto tiene la cantidad de 0 y además el array de productos es 1 (es decir que hay un producto) seteamos el estado de si hay algo en el carrito en false y seteamos en el carrito un array vacio
-      if (newRestedProducto.quantity === 0 && onCart.length === 1) {
-        setsomethingInCart(false);
-        return setonCart([]);
-      }
+  //     //Si ese producto tiene la cantidad de 0 y además el array de productos es 1 (es decir que hay un producto) seteamos el estado de si hay algo en el carrito en false y seteamos en el carrito un array vacio
+  //     if (newRestedProducto.quantity === 0 && onCart.length === 1) {
+  //       setsomethingInCart(false);
+  //       return setonCart([]);
+  //     }
 
-      //Si ese producto tiene la cantidad de 0, entonces no se setea
-      if (newRestedProducto.quantity === 0) {
-        return setonCart([...newCart]);
-      }
+  //     //Si ese producto tiene la cantidad de 0, entonces no se setea
+  //     if (newRestedProducto.quantity === 0) {
+  //       return setonCart([...newCart]);
+  //     }
 
-      //Si ese producto tiene la cantidad +1, entonces se setea
-      console.log("Esto traeNewRestedProducto");
-      console.log(newRestedProducto);
+  //     //Si ese producto tiene la cantidad +1, entonces se setea
+  //     console.log("Esto traeNewRestedProducto");
+  //     console.log(newRestedProducto);
 
-      return setonCart([newRestedProducto, ...newCart]);
-    }
-  }
+  //     return setonCart([newRestedProducto, ...newCart]);
+  //   }
+  // }
+
+  const removeItem = (id) => {
+    setonCart(onCart.filter((re) => re.id !== id))
+};
 
   console.log("SOY CART CONTEXT 🛒👇");
   console.log(onCart);

@@ -20,8 +20,9 @@ export default function ItemDetail({ product }) {
   function addProduct() {
     console.log("se ejecuto addP");
 
-    addCart({ precio, cantidad, title });
-
+    //addCart(product)
+    addCart({ precio, cantidad, title,id});
+    //console.log(productTotal)
     history.push("/cart");
   }
 
@@ -32,8 +33,18 @@ export default function ItemDetail({ product }) {
   const precio = product.precio;
   const cantidad = quantityProductsAdded.quantity;
   const title = product.title;
-  console.log(precio);
-  console.log(cantidad);
+  const id=product.id;
+  //const key =product.id;
+  //console.log(precio);
+  //console.log(cantidad);
+  //console.log(id);
+  // const productTotal={
+
+  //  precio : product.precio,
+  //  cantidad : quantityProductsAdded.quantity,
+  //  title : product.title,
+  //  id:product.id
+  // }
 
   let history = useHistory();
   return (
@@ -49,7 +60,7 @@ export default function ItemDetail({ product }) {
           </Card.Subtitle>
           <Card.Text>descripcion:{product.description}</Card.Text>
           <Card.Text>Precio:{product.precio}</Card.Text>
-          {/* <Card.Text>cantidad:{quantityProductsAdded.quantity}</Card.Text> */}
+          <Card.Text>id:{product.id}</Card.Text>
         </Card.Body>
         <Card.Footer>
           <Card.Link>
