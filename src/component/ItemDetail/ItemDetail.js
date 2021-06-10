@@ -34,18 +34,7 @@ export default function ItemDetail({ product }) {
   const cantidad = quantityProductsAdded.quantity;
   const title = product.title;
   const id=product.id;
-  //const key =product.id;
-  //console.log(precio);
-  //console.log(cantidad);
-  //console.log(id);
-  // const productTotal={
-
-  //  precio : product.precio,
-  //  cantidad : quantityProductsAdded.quantity,
-  //  title : product.title,
-  //  id:product.id
-  // }
-
+  
   let history = useHistory();
   return (
     <div style={{ display: "flex", flexDireccion: "column" }}>
