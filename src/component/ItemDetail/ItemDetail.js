@@ -1,14 +1,13 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { Card, Button, ButtonGroup } from "bootstrap-4-react";
-import imgSrc from "../../Asses/img/Red_High_Heel_Pumps.png";
+//import imgSrc from "../../Asses/img/Red_High_Heel_Pumps.png";
 import { useHistory } from "react-router-dom";
 import ItemCountContainers from "../itemCountContainers/itemCountContainers";
-//import {CartContex} from '../Context/cartContex'
 import { CartContext } from "../Context/CartContext";
 
 export default function ItemDetail({ product }) {
-  console.log(product);
+  console.log( product);
   const { addCart } = useContext(CartContext);
   console.log(addCart);
 
@@ -21,7 +20,7 @@ export default function ItemDetail({ product }) {
     console.log("se ejecuto addP");
 
     //addCart(product)
-    addCart({ precio, cantidad, title,id});
+    addCart({ cantidad,title,precio,id});
     //console.log(productTotal)
     history.push("/cart");
   }
@@ -30,10 +29,10 @@ export default function ItemDetail({ product }) {
     setQuantityProductsAdded(quantityProductsAdded);
   }, []);
 
-  const precio = product.precio;
-  const cantidad = quantityProductsAdded.quantity;
-  const title = product.title;
-  const id=product.id;
+   const precio = product.precio;
+   const cantidad = quantityProductsAdded.quantity;
+   const title = product.title;
+   const id=product.id;
   
   let history = useHistory();
   return (
@@ -41,7 +40,8 @@ export default function ItemDetail({ product }) {
       <div className="infoProduct" key={product.id}></div>
       <Card style={{ width: "14rem" }}>
         <Card.Header>Zapatos</Card.Header>
-        <Card.Image src={imgSrc} />
+        {/* <Card.Image src={imgSrc} /> */}
+        <Card.Image src={product.image} />
         <Card.Body>
           <Card.Title>Caracas</Card.Title>
           <Card.Subtitle mb="1" text="muted">
@@ -49,7 +49,7 @@ export default function ItemDetail({ product }) {
           </Card.Subtitle>
           <Card.Text>descripcion:{product.description}</Card.Text>
           <Card.Text>Precio:{product.precio}</Card.Text>
-          <Card.Text>id:{product.id}</Card.Text>
+          {/* <Card.Text>id:{product.id}</Card.Text> */}
         </Card.Body>
         <Card.Footer>
           <Card.Link>

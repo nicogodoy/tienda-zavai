@@ -7,6 +7,7 @@ import ItemListContainers from '../itemListContainer/itemListContainer'
 import ItemListContainer from '../itemListContainer/itemListContainer'
 import Navb from '../navbar/navb/navb'
 import '../Context/CartContext'
+import FormsPage from '../forms/forms';
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
       </Route>
       <Route path="/cart">
         <Cart/>
+      </Route>
+      <Route path="/forms">
+        <FormsPage  />
       </Route>
       </Switch>
       

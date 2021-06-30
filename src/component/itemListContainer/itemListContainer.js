@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Item from "../item/item";
 import { useParams } from "react-router-dom";
 import { getItems, getItemFire} from "../../servicie/servicie";
+import Home from '../Home/home' 
 
 export default function ItemListContainer() {
   const [item, setItems] = useState([]);
@@ -21,7 +22,10 @@ export default function ItemListContainer() {
 
 
   return (
+  
     <div style={{ display: "flex", justifyContent: "space-between" }}>
+     
+      {/* <Home/> */}
       {item.map((xItem) => (
         <Item
           title={xItem.title}

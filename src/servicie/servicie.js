@@ -8,7 +8,7 @@ const itemColeccion=db.collection('category','orden')
 export function getItemFire(){
  return itemColeccion.get()
  .then(snapshot=>{
-     return snapshot.docs.map(doc=>doc.data())
+     return snapshot.docs.map(doc=>({...doc.data(),id:doc.id}))
  })
 }
 

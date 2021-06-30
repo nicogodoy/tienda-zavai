@@ -26,11 +26,12 @@ export default function CartContextProvider({ children }) {
     );
     console.log(product);
 
-    if (isInCart(product)) {
+    if (isInCart(product.id)) {
+   
       console.log("Esto trae product id");
-      console.log(product.item.id);
+      //console.log(product.item.id);
 
-      const newQuantity = product.quantity;
+      const newQuantity = product.cantidad;
       const [oldProduct] = onCart.filter(
         (onCartProduct) => onCartProduct.item.id === product.item.id
       );
@@ -47,7 +48,7 @@ export default function CartContextProvider({ children }) {
           item: {
             description: product.item.description,
             id: product.item.id,
-            idCategory: product.item.idCategory,
+            idCategory: product.item.categoryId,
             photo: product.item.photo,
             price: product.item.price,
             title: product.item.title,
@@ -75,6 +76,18 @@ export default function CartContextProvider({ children }) {
     console.log(onCart);
   }
 
+//   const addCart = (product, cantidad) => {
+//     const productos =onCart.find((item) => item.items.id === product.id);
+//     if(productos) {
+//         let newQuantity = product.quantity + cantidad;
+//         let position = onCart.indexOf(product);
+//         let copy =[...onCart];
+//         copy[position].quantity = newQuantity;
+//         setonCart(copy);
+//     } else {
+//       setonCart ([...onCart, {product, cantidad}])
+//     } 
+// };
   // Función que chequea si existe previamente un producto. Esta sirve para que si existe no agrege otro objeto al array, sino que lo agregue al ya existente.
   function isInCart({ id }) {
     //console.log(product)
