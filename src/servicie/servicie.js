@@ -2,7 +2,8 @@ import db from '../firebase/index'
 //import firebase from 'firebase/app'
 //import 'firebase/firestore'
 
-const itemColeccion=db.collection('category','orden')
+//const itemColeccion=db.collection('category','orden')
+const itemColeccion=db.collection('category')
 
 
 export function getItemFire(){

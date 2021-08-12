@@ -18,7 +18,7 @@ export default function Navb() {
   let history = useHistory();
   return (
 
-    <Navbar expand="xxl" light bg="dark" sticky = " top ">
+    <Navbar expand="lg" light bg="dark" sticky = " top ">
       {/* <Navbar.Brand href="#">Villana Store</Navbar.Brand> */}
       <Navbar.Brand href="#"><Home/></Navbar.Brand>
       <Navbar.Toggler target="#navbarSupportedContent" />
