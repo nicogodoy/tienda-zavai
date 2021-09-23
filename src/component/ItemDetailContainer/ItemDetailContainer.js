@@ -12,7 +12,7 @@ export default function ItemDetailContainer() {
 
   useEffect(() => {
     
-      getItemFire().then((data) => {
+    getItems.then((data) => {
         console.log("se ejecuto get item")
         const[itemProduct ]= data.filter((product) => product.id == id);
         setItemDetail(itemProduct);

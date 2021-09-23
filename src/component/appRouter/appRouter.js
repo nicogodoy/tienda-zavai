@@ -8,13 +8,16 @@ import ItemListContainer from '../itemListContainer/itemListContainer'
 import Navb from '../navbar/navb/navb'
 import '../Context/CartContext'
 import FormsPage from '../forms/forms';
+import Principal from '../Pricipal/principal'
 
 function App() {
   return (
     <BrowserRouter>
       <Navb/>
-      
       <Switch>
+      <Route exact path="/descuentos">
+      <Principal/>    
+       </Route>
       <Route exact path="/">
       <ItemListContainers/>
       </Route>
@@ -30,6 +33,7 @@ function App() {
       <Route path="/forms">
         <FormsPage  />
       </Route>
+  
       </Switch>
       
     </BrowserRouter>

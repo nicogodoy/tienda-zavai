@@ -49,6 +49,7 @@ export default function ItemDetail({ product }) {
           </Card.Subtitle>
           <Card.Text>descripcion:{product.description}</Card.Text>
           <Card.Text>Precio:{product.precio}</Card.Text>
+          
           {/* <Card.Text>id:{product.id}</Card.Text> */}
         </Card.Body>
         <Card.Footer>

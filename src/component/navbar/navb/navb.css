@@ -5,12 +5,11 @@
     
 }
 
-
-
-.bg-light{
+.bg-dark {
+    width: 100%;
+    height: 50%;
+   background-color: rgb(226, 226, 250)!important;
+    position: static;
     
-    background-color: rgba(206, 114, 16, 0.974); 
-    /* position: static; */
-
-
 }
+

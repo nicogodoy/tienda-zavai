@@ -6,12 +6,26 @@ import db from '../firebase/index'
 const itemColeccion=db.collection('category')
 
 
-export function getItemFire(){
- return itemColeccion.get()
- .then(snapshot=>{
-     return snapshot.docs.map(doc=>({...doc.data(),id:doc.id}))
- })
+const productsCollection = db.collection('productos')
+
+export async function getItemFire(){
+    const docRef = await productsCollection.get();
+
+    const productos = docRef.docs.map(doc => {
+        return { id: doc.id, ...doc.data()}
+    })
+    return productos;
 }
+
+export default getItemFire 
+
+
+// export function getItemFire(){
+//  return itemColeccion.get()
+//  .then(snapshot=>{
+//      return snapshot.docs.map(doc=>({...doc.data(),id:doc.id}))
+//  })
+// }
 
 export function getItemOrder(){
     return itemColeccion.get()

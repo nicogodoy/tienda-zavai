@@ -1,5 +1,6 @@
 import firebase from 'firebase'
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyCCJ37E4P4DO9bsdOfGNGKb0fnSQp5wNHs",
   authDomain: "fir-villanas.firebaseapp.com",

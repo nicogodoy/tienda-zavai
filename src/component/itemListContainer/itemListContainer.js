@@ -12,7 +12,7 @@ export default function ItemListContainer() {
 
   useEffect(() => {
     setTimeout(() => {
-      getItemFire().then((data) => {
+      getItems.then((data) => {
         const productCategory = data.filter((product) => product.categoryId === categoryId);
         console.log(productCategory);
         setItems(productCategory);
@@ -35,6 +35,7 @@ export default function ItemListContainer() {
           id={xItem.id}
           key={xItem.id}
           itemQuantity={xItem.itemQuantity}
+          image={xItem.image}
           
         />
       ))}

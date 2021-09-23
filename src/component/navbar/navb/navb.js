@@ -6,29 +6,34 @@ import {
   Dropdown,
   Form,
   Collapse,
+  
 } from "bootstrap-4-react";
+// import {Button} from 'react-bootstrap/Button';
+// import { Navbar, Collapse, BDiv, BH5, BSpan } from 'bootstrap-4-react';
 import "./navb.css";
 import CartWidget from "../cardWidget/cartWidget";
 import Home from '../../Home/home' 
 import { useHistory } from "react-router-dom";
-//#99740f
-//#c29006
+
 
 export default function Navb() {
   let history = useHistory();
   return (
+    
 
-    <Navbar expand="lg" light bg="dark" sticky = " top ">
+    <Navbar style={{height:"80pt",flexDirection: "row-reverse"}}  expand="xxl" light bg="" sticky = " top ">
       {/* <Navbar.Brand href="#">Villana Store</Navbar.Brand> */}
-      <Navbar.Brand href="#"><Home/></Navbar.Brand>
-      <Navbar.Toggler target="#navbarSupportedContent" />
+     <CartWidget /> <Navbar.Brand href="/"><Home style={{height:"80pt"}}/></Navbar.Brand> 
+      <Navbar.Toggler  target="#navbarSupportedContent"  />
+     
       <Collapse navbar id="navbarSupportedContent">
+      
         <Navbar.Nav mr="auto">
-          <Nav.Item active>
-            <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Item style={{height:"40pt"}}  active>
+            <Nav.Link href="/Descuentos">Descuentos</Nav.Link>
           </Nav.Item>
           <Nav.Item active>
-            <Nav.Link href="#">Contacto</Nav.Link>
+            <Nav.Link href="/contacto">Contacto</Nav.Link>
           </Nav.Item>
           <Nav.Item dropdown>
             <Nav.Link dropdownToggle>Productos</Nav.Link>
@@ -47,13 +52,19 @@ export default function Navb() {
             
           </Nav.Item>
           <Nav.Item dropdown></Nav.Item>
+          
         </Navbar.Nav>
         
-        <Navbar.Brand className="cartWidget">
+        {/* <Navbar.Brand className="cartWidget">
           <CartWidget />
-        </Navbar.Brand>
+          
+        </Navbar.Brand> */}
+       
       </Collapse>
      
+      
     </Navbar>
+    
   );
 }
+

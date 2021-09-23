@@ -2,7 +2,8 @@ import react from "react";
 import { useState, useContext } from "react";
 import { CartContext } from "../Context/CartContext";
 import { Button, Form } from "react-bootstrap";
-import Home from '../Home/home'
+//import Home from '../Home/home'
+
 const { getItemOrder } = require("../../servicie/servicie");
 
 
